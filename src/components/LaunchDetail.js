@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 function LaunchDetail() {
   const [launch, setLaunch] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLaunchDetail = async () => {
@@ -36,7 +37,7 @@ function LaunchDetail() {
       <p>Mission: {launch.mission?.description || 'No mission description available.'}</p>
       <p>Rocket: {launch.rocket.configuration.name}</p>
       <p>Launch Site: {launch.pad.name}</p>
-      <Link to="/">Back to Launch List</Link>
+      <button onClick={() => navigate('/')}>Back to Launch List</button>
     </div>
   );
 }

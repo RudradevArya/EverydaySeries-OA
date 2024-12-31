@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LaunchList from './components/LaunchList';
 import LaunchDetail from './components/LaunchDetail';
 
@@ -8,10 +8,10 @@ function App() {
     <Router>
       <div className="App">
         <h1>Space Launch Calendar</h1>
-        <Switch>
-          <Route exact path="/" component={LaunchList} />
-          <Route path="/launch/:id" component={LaunchDetail} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<LaunchList />} />
+          <Route path="/launch/:id" element={<LaunchDetail />} />
+        </Routes>
       </div>
     </Router>
   );
