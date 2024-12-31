@@ -1,8 +1,39 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import CountdownTimer from './CountdownTimer';
 
+const DetailWrapper = styled.div`
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+`;
+
+const LaunchImage = styled.img`
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+`;
+
+const Button = styled.button`
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #1565c0;
+  }
+`;
 function LaunchDetail() {
   const [launch, setLaunch] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -36,6 +67,8 @@ useEffect(() => {
     const fetchLaunchDetail = async () => {
       try {
         const res = await axios.get(`https://lldev.thespacedevs.com/2.2.0/launch/${id}/`);
+        // const res = await axios.get(`https://ll.thespacedevs.com/2.2.0/launch/${id}/`); 
+        // production API with 15req/hour rate limit
         setLaunch(res.data);
         setLoading(false);
       } catch (error) {
@@ -63,23 +96,12 @@ useEffect(() => {
   if (!launch) return <div>No launch data available.</div>;
 
   return (
-    <div>
+    <DetailWrapper>
       <h2>{launch.name}</h2>
-      {retryAfter && (
-        <p>Rate limit exceeded. You can try again in {retryAfter} seconds.</p>
-      )}
-        {error && <div className="error-message">{error}</div>}
-        {retryAfter && (
-        <p>You can try again in {retryAfter} seconds.</p>
-        )}
-
-    {error && <div className="error-message">{error}</div>}
-    {countdown > 0 && (
-    <p>You can try again in {countdown} seconds.</p>
-    )}
       {launch.image && (
-        <img src={launch.image} alt={launch.name} style={{width: '300px', height: 'auto', marginBottom: '20px'}} />
+        <LaunchImage src={launch.image} alt={launch.name} />
       )}
+      <CountdownTimer launchDate={launch.net} />
       <p>Date: {new Date(launch.net).toLocaleString()}</p>
       <p>Status: {launch.status.name}</p>
       <p>Mission: {launch.mission?.description || 'No mission description available.'}</p>
@@ -107,8 +129,8 @@ useEffect(() => {
           </ul>
         </div>
       )}
-      <button onClick={() => navigate('/')}>Back to Launch List</button>
-    </div>
+      <Button onClick={() => navigate('/')}>Back to Launch List</Button>
+    </DetailWrapper>
   );
 }
 
