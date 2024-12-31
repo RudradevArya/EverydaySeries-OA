@@ -5,14 +5,15 @@ import CountdownTimer from './CountdownTimer';
 
 const Card = styled.div`
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -27,13 +28,20 @@ const CardContent = styled.div`
 `;
 
 const CardTitle = styled.h3`
-  margin: 0 0 10px 0;
-  color: #333;
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 1.4em;
 `;
 
 const CardText = styled.p`
-  color: #666;
+  color: #34495e;
   margin: 0 0 10px 0;
+  font-size: 1em;
+`;
+
+const CardLabel = styled.span`
+  font-weight: bold;
+  color: #7f8c8d;
 `;
 
 const LaunchCard = ({ launch }) => {
@@ -43,9 +51,13 @@ const LaunchCard = ({ launch }) => {
         {launch.image && <CardImage src={launch.image} alt={launch.name} />}
         <CardContent>
           <CardTitle>{launch.name}</CardTitle>
-          <CardText>{new Date(launch.net).toLocaleString()}</CardText>
+          <CardText>
+            <CardLabel>Date:</CardLabel> {new Date(launch.net).toLocaleString()}
+          </CardText>
           <CountdownTimer launchDate={launch.net} />
-          <CardText>Status: {launch.status.name}</CardText>
+          <CardText>
+            <CardLabel>Status:</CardLabel> {launch.status.name}
+          </CardText>
         </CardContent>
       </Link>
     </Card>

@@ -27,8 +27,8 @@ function LaunchList() {
   useEffect(() => {
     const fetchLaunches = async () => {
       try {
-        const res = await axios.get('https://lldev.thespacedevs.com/2.2.0/launch/');
-        // const res = await axios.get('https://ll.thespacedevs.com/2.2.0/launch/');
+        const res = await axios.get('https://lldev.thespacedevs.com/2.2.0/launch/upcoming');
+        // const res = await axios.get('https://ll.thespacedevs.com/2.2.0/launch/upcoming');
         // production API with 15req/hour rate limit
         setLaunches(res.data.results);
         setLoading(false);
@@ -40,10 +40,10 @@ function LaunchList() {
             setRetryAfter(parseInt(retryAfter, 10));
             setError(`Rate limit exceeded. Please try again in ${retryAfter} seconds.`);
           } else {
-            setError('Rate limit exceeded. Please try again later.');
+            setError('Rate limit exceeded. Please try again later.as the rate limit for "https://ll.thespacedevs.com/2.2.0/launch/" is 15req/hour');
           }
         } else {
-          setError('Failed to fetch launches. Please try again later.');
+          setError('Failed to fetch launches. Please try again later.as the rate limit for "https://ll.thespacedevs.com/2.2.0/launch/" is 15req/hour');
         }
         setLoading(false);
       }
