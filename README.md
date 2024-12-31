@@ -1,27 +1,28 @@
 # Everyday Series Problem Statement
 
 Assignment
-	1.	Propose a MicroSaaS Idea
-	•	Think of a very simple MicroSaaS idea addressing a niche market or a specific problem. The idea should be practical and feasible for a one-person startup.
-	•	Example Ideas:
-	•	“Meeting Time Optimizer”: 
-	•	“Content Expiry Notifier”: 
-	•	“Social Media Hashtag Generator”: 
-	2.	Create a GitHub Repository
-	•	Include:
-	•	A README.md file with the following:
-	•	Project description
-	•	Setup instructions
-	•	Features overview
-	•	Screenshots (if applicable)
-	•	Basic implementation of the idea (use any programming language or framework of your choice).
-	•	You may use ChatGPT or other resources for assistance, but your repository should reflect your understanding of the work.
+Propose a MicroSaaS Idea
+- Think of a very simple MicroSaaS idea addressing a niche market or a specific problem. The idea should be practical and feasible for a one-person startup.
+    Example Ideas:
+ 	- “Meeting Time Optimizer”: 
+	- “Content Expiry Notifier”: 
+	- “Social Media Hashtag Generator”: 
+
+Create a GitHub Repository
+Include:
+- A README.md file with the following:
+- Project description
+- Setup instructions
+- Features overview
+- Screenshots (if applicable)
+- Basic implementation of the idea (use any programming language or framework of your choice).
+- You may use ChatGPT or other resources for assistance, but your repository should reflect your understanding of the work.
 
 Evaluation Criteria
-•	Clarity of the Idea: How well does the proposed MicroSaaS solve the problem?
-•	Code Quality: Is the implementation clean, functional, and organized?
-•	Documentation: Is the README clear and comprehensive?
-•	Innovation and Feasibility: Is the idea innovative and simple enough for a one-person startup?
+- Clarity of the Idea: How well does the proposed MicroSaaS solve the problem?
+- Code Quality: Is the implementation clean, functional, and organized?
+- Documentation: Is the README clear and comprehensive?
+- Innovation and Feasibility: Is the idea innovative and simple enough for a one-person startup?
 
 # Rudradev's Space Launch Calendar
 
