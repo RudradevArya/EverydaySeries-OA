@@ -8,6 +8,26 @@ function LaunchList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [retryAfter, setRetryAfter] = useState(null);
+  const [countdown, setCountdown] = useState(null);
+
+  useEffect(() => {
+    let timer;
+    if (retryAfter) {
+      setCountdown(retryAfter);
+      timer = setInterval(() => {
+        setCountdown((prevCountdown) => {
+          if (prevCountdown <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prevCountdown - 1;
+        });
+      }, 1000);
+    }
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [retryAfter]);
 
   useEffect(() => {
     const fetchLaunches = async () => {
@@ -16,13 +36,17 @@ function LaunchList() {
         setLaunches(res.data.results);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching launches:', error);
+        console.error('Error fetching data:', error);
         if (error.response && error.response.status === 429) {
           const retryAfter = error.response.headers['retry-after'];
-          setRetryAfter(retryAfter);
-          setError(`Rate limit exceeded. Please try again in ${retryAfter} seconds.`);
+          if (retryAfter) {
+            setRetryAfter(parseInt(retryAfter, 10));
+            setError(`Rate limit exceeded. Please try again in ${retryAfter} seconds.`);
+          } else {
+            setError('Rate limit exceeded. Please try again later.');
+          }
         } else {
-          setError('Failed to fetch launches. Please try again later.');
+          setError('Failed to fetch data. Please try again later.');
         }
         setLoading(false);
       }
@@ -40,6 +64,15 @@ function LaunchList() {
       {retryAfter && (
         <p>Rate limit exceeded. You can try again in {retryAfter} seconds.</p>
       )}
+      {error && <div className="error-message">{error}</div>}
+        {retryAfter && (
+        <p>You can try again in {retryAfter} seconds.</p>
+        )}
+
+    {error && <div className="error-message">{error}</div>}
+    {countdown > 0 && (
+    <p>You can try again in {countdown} seconds.</p>
+    )}
       <ul>
         {launches.map(launch => (
           <li key={launch.id}>
