@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Everyday Series Problem Statement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Assignment
+	1.	Propose a MicroSaaS Idea
+	•	Think of a very simple MicroSaaS idea addressing a niche market or a specific problem. The idea should be practical and feasible for a one-person startup.
+	•	Example Ideas:
+	•	“Meeting Time Optimizer”: 
+	•	“Content Expiry Notifier”: 
+	•	“Social Media Hashtag Generator”: 
+	2.	Create a GitHub Repository
+	•	Include:
+	•	A README.md file with the following:
+	•	Project description
+	•	Setup instructions
+	•	Features overview
+	•	Screenshots (if applicable)
+	•	Basic implementation of the idea (use any programming language or framework of your choice).
+	•	You may use ChatGPT or other resources for assistance, but your repository should reflect your understanding of the work.
 
-## Available Scripts
+Evaluation Criteria
+•	Clarity of the Idea: How well does the proposed MicroSaaS solve the problem?
+•	Code Quality: Is the implementation clean, functional, and organized?
+•	Documentation: Is the README clear and comprehensive?
+•	Innovation and Feasibility: Is the idea innovative and simple enough for a one-person startup?
 
-In the project directory, you can run:
+# Rudradev's Space Launch Calendar
 
-### `npm start`
+Space Launch Calendar is a web application that provides up-to-date information on upcoming space launches worldwide. It offers a user-friendly interface to browse launch details, countdown timers, and mission information.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Space Launch Calendar Demo](demo/demo.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- [x] View a list of upcoming space launches 
+- [x] Detailed information for each launch, including:
+  - [x] Launch date and time
+  - [x] Countdown timer (T- for upcoming, T+ for past launches)
+  - [x] Mission description
+  - [x] Rocket information
+  - [x] Launch site details
+- [x] Responsive design for desktop and mobile devices
+- [x] Real-time updates of countdown timers
+- [x] Links to video streams (when available) (rate limited by the SpaceDevs API to 15req/hour)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+1. Clone the repository:
+`git clone https://github.com/RudradevArya/EverydaySeries-OA.git` 
+`cd space-launch-calendar`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+`npm install`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Create a `.env` file in the root directory and add your Space Devs API key (if using the Paid API key):
+`REACT_APP_SPACE_DEVS_API_KEY=your_api_key`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the development server:
+`npm start`
 
-### `npm run eject`
+5. Open your browser and visit `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Launch List
+![Launch List](demo/launch-list.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Launch Details
+![Launch Details](demo/launch-details.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Task List for Future Enhancements
 
-## Learn More
+- [ ] Integrate with my LambdaMailer project for email notifications
+- [ ] Implement push notifications for upcoming launches
+- [ ] Implement user authentication
+- [ ] Add feature to save favorite launches
+- [ ] Create a calendar view of launches
+- [ ] Add search functionality
+- [ ] Create a dark mode option
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -23,7 +23,7 @@ function App() {
     <Router>
       <GlobalStyle />
       <AppWrapper>
-        <Title>Space Launch Calendar</Title>
+        <Title>Rudradev's Space Launch Calendar</Title>
         <Routes>
           <Route path="/" element={<LaunchList />} />
           <Route path="/launch/:id" element={<LaunchDetail />} />
